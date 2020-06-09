@@ -1,0 +1,113 @@
+validetion hoilo login ar code
+ar login kora na thakle regu=istretin ar code hoilo
+registretion.php
+
+
+ar login plus registration ar html vode hoilo
+
+ <!--- login popup form-->
+<div class="modal fade" id="loginform" tabindex="10" role="dialog" aria-labelledby="loginform" aria-hidden="true">
+  <div class="modal-dialog" role="dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class=" text-center" id="loginform">Login form</h5>
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+      <div class="modal-body">
+        <form action="validetion.php" method="post">
+
+          <div class="form-group">
+            <label for="useremail" class="col-form-label">Email</label>
+            <input type="text" class="form-control" name="useremail" required>
+          </div>
+          <div class="form-group">
+            <label for="userpassword" class="col-form-label">password:</label>
+            <input class="form-control" type="password"name="userpassword" required>
+          </div>
+          <input type="checkbox" aria-label="Checkbox for following text input"><label>Remember password</label>
+       <div class="modal-footer">
+         <a href="?pagetype=login">
+         <button type="submit" class="btn btn-primary loginformbutton">login</button>
+         <?php $_SESSION['pageid']='3'; ?>
+       </a>
+      </div>
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<!--- registretion form-->
+<div class="modal fade" id="Registerform" role="dialog" aria-labelledby="registerform" aria-hidden="true">
+    <div class="modal-dialog" role="dialog">
+      <div class="modal-content">
+         <div class="modal-body">
+        <form action="registretion.php" method="post" enctype="multipart/form-data">
+            <?php echo $errorname; ?>
+          <div class="form-group">
+            <label for="username" class="col-form-label">Name</label>
+            <input type="text" class="form-control" name="username" required>
+          </div>
+            <?php echo $erroremail; ?>
+          <div class="form-group">
+            <label for="useremail" class="col-form-label">email:</label>
+            <input class="form-control" name="useremail" required>
+          </div>
+            <?php echo $errornumber; ?>
+           <div class="form-group">
+            <label for="usercell" class="col-form-label">cellnumber:</label>
+            <input class="form-control" name="usernumber" required>
+          </div>
+            <?php echo $erroraddress; ?>
+           <div class="form-group">
+            <label for="useraddress" class="col-form-label">address:</label>
+            <textarea class="form-control" name="useraddress" required></textarea>
+          </div>
+            <?php echo $errorpassword; ?>
+           <div class="form-group">
+            <label for="userpassword" class="col-form-label">password:</label>
+            <input class="form-control" name="userpassword" required>
+             <label>uplode image</label>
+           <input type="file" name="userimage" class="inputfile">
+          </div>
+           <div class="modal-footer">
+
+        <button type="submit" class="btn btn-primary loginformbutton" value="submit" name="submit">submit</button>
+      </div>
+        </form>
+      </div>
+      </div>
+    </div>
+</div>
+<!---  Script source files-->
+<script>
+$('#loginform').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+});
+
+$('#Registerform').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+});
+
+
+}
+
+</script>
